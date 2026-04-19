@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>学习之旅</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="app">
+    <video id="video1" class="mainVideo activeVideo" playsinline muted autoplay></video>
+    <video id="video2" class="mainVideo inactiveVideo" playsinline></video>
+
+    <div id="subtitle" class="subtitle">
+      点击屏幕开始学习之旅
+    </div>
+
+    <div id="clickLayer" class="click-layer"></div>
+  </div>
+  <div id="courseEndOverlay" class="course-end-overlay hidden">
+    <div class="course-end-card">
+      <div class="course-end-title">恭喜你完成本课学习</div>
+      <div class="course-end-text">
+        行至此处，已览其要。<br>
+        下一步，请前往训练场检验学习成果。
+      </div>
+      <button id="goTrainingBtn" class="course-end-btn">前往训练场</button>
+    </div>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+</body>
+</html>

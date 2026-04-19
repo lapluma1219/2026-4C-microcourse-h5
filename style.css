@@ -1,0 +1,196 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+
+#app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  background: #000;
+}
+
+.mainVideo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  background: #000;
+  transition: opacity 0.25s ease;
+}
+
+.activeVideo {
+  opacity: 1;
+  z-index: 1;
+}
+
+.inactiveVideo {
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.subtitle {
+  position: absolute;
+  left: 50%;
+  bottom: 80px;
+  transform: translateX(-50%);
+  z-index: 10;
+  pointer-events: none;
+
+  color: #f8f1df;
+  font-size: 60px;
+  font-weight: 500;
+  font-family: "STKaiti", "KaiTi", "Kaiti SC", "FangSong", serif;
+  letter-spacing: 3px;
+  line-height: 1.5;
+  white-space: nowrap;
+
+  background: none;
+  border: none;
+  padding: 0;
+  border-radius: 0;
+
+  -webkit-text-stroke: 1px #000;
+
+  text-shadow:
+    0 0 4px rgba(255, 244, 214, 0.55),
+    0 0 10px rgba(255, 220, 150, 0.28),
+    0 0 18px rgba(255, 210, 120, 0.16);
+
+  animation: guofengTwinkle 2.4s ease-in-out infinite;
+}
+
+@keyframes guofengTwinkle {
+  0% {
+    opacity: 0.72;
+    text-shadow:
+      0 0 3px rgba(255, 244, 214, 0.38),
+      0 0 8px rgba(255, 220, 150, 0.18),
+      0 0 14px rgba(255, 210, 120, 0.10);
+  }
+
+  50% {
+    opacity: 1;
+    text-shadow:
+      0 0 6px rgba(255, 244, 214, 0.72),
+      0 0 14px rgba(255, 220, 150, 0.36),
+      0 0 24px rgba(255, 210, 120, 0.20);
+  }
+
+  100% {
+    opacity: 0.72;
+    text-shadow:
+      0 0 3px rgba(255, 244, 214, 0.38),
+      0 0 8px rgba(255, 220, 150, 0.18),
+      0 0 14px rgba(255, 210, 120, 0.10);
+  }
+}
+
+.click-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.course-end-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(10, 8, 6, 0.42);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.course-end-card {
+  width: min(760px, 92vw);
+  padding: 44px 36px 34px;
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(248, 241, 223, 0.96), rgba(238, 226, 198, 0.94));
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.28),
+    inset 0 0 0 1px rgba(120, 86, 38, 0.18);
+  text-align: center;
+  animation: cardFadeUp 0.6s ease;
+}
+
+.course-end-title {
+  color: #3b2a18;
+  font-size: 38px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  line-height: 1.4;
+  font-family: "STKaiti", "KaiTi", "Kaiti SC", "FangSong", serif;
+  text-shadow: 0 1px 2px rgba(255, 255, 255, 0.35);
+}
+
+.course-end-text {
+  margin-top: 22px;
+  color: #5a4530;
+  font-size: 22px;
+  line-height: 1.9;
+  letter-spacing: 1px;
+  font-family: "STKaiti", "KaiTi", "Kaiti SC", "FangSong", serif;
+}
+
+.course-end-btn {
+  margin-top: 32px;
+  padding: 14px 36px;
+  border: none;
+  border-radius: 999px;
+  background: linear-gradient(180deg, #8b6a3e, #6f512d);
+  color: #f7ead2;
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  font-family: "STKaiti", "KaiTi", "Kaiti SC", "FangSong", serif;
+  cursor: pointer;
+  box-shadow:
+    0 8px 22px rgba(56, 36, 16, 0.28),
+    inset 0 1px 0 rgba(255, 236, 190, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease;
+}
+
+.course-end-btn:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    0 12px 28px rgba(56, 36, 16, 0.34),
+    inset 0 1px 0 rgba(255, 236, 190, 0.34);
+}
+
+.course-end-btn:active {
+  transform: translateY(0);
+  opacity: 0.96;
+}
+
+@keyframes cardFadeUp {
+  0% {
+    opacity: 0;
+    transform: translateY(18px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

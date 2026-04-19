@@ -1,0 +1,624 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  min-height: 100%;
+  background: #0f0b08;
+  font-family: "Microsoft YaHei", "PingFang SC", sans-serif;
+  color: #2f2418;
+}
+
+body {
+  min-height: 100vh;
+}
+
+.training-page {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(circle at top, rgba(120, 88, 44, 0.18), transparent 40%),
+    linear-gradient(180deg, #1a130f 0%, #120d0a 100%);
+}
+
+.training-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255, 226, 170, 0.08), transparent 22%),
+    radial-gradient(circle at 80% 25%, rgba(255, 214, 140, 0.06), transparent 18%),
+    radial-gradient(circle at 50% 80%, rgba(255, 240, 210, 0.03), transparent 28%);
+  pointer-events: none;
+}
+
+.training-shell {
+  position: relative;
+  z-index: 2;
+  width: min(1100px, 92vw);
+  margin: 0 auto;
+  padding: 42px 0 56px;
+}
+
+.training-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.training-title {
+  color: #f5ead3;
+  font-size: 48px;
+  font-family: "STKaiti", "KaiTi", "Kaiti SC", "FangSong", serif;
+  letter-spacing: 6px;
+  text-shadow:
+    0 0 6px rgba(255, 236, 200, 0.18),
+    0 0 14px rgba(255, 204, 120, 0.08);
+}
+
+.training-subtitle {
+  margin-top: 10px;
+  color: #d7c5a6;
+  font-size: 18px;
+  letter-spacing: 2px;
+  font-family: "STKaiti", "KaiTi", "Kaiti SC", "FangSong", serif;
+}
+
+.student-bar,
+.progress-bar-wrap,
+.question-card,
+.nav-bar {
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(247, 239, 222, 0.96), rgba(235, 223, 196, 0.94));
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.22),
+    inset 0 0 0 1px rgba(124, 92, 48, 0.14);
+}
+
+.student-bar {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+  padding: 22px 24px;
+  margin-bottom: 18px;
+}
+
+.field-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field-item label {
+  color: #5c442a;
+  font-size: 18px;
+  font-family: "STKaiti", "KaiTi", "Kaiti SC", "FangSong", serif;
+  letter-spacing: 1px;
+}
+
+.field-item input {
+  height: 48px;
+  padding: 0 16px;
+  border: 1px solid rgba(122, 88, 46, 0.22);
+  border-radius: 14px;
+  outline: none;
+  background: rgba(255, 252, 245, 0.85);
+  font-size: 16px;
+  color: #3d2c19;
+}
+
+.progress-bar-wrap {
+  padding: 20px 24px;
+  margin-bottom: 18px;
+}
+
+.progress-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+#progressText {
+  color: #5c442a;
+  font-size: 18px;
+  font-family: "STKaiti", "KaiTi", "Kaiti SC", "FangSong", serif;
+}
+
+.question-type-tag {
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(114, 81, 45, 0.12);
+  color: #6b4c2d;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  border-radius: 999px;
+  background: rgba(120, 93, 59, 0.14);
+  overflow: hidden;
+}
+
+.progress-inner {
+  width: 0%;
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #8a663a, #c69d64);
+  transition: width 0.25s ease;
+}
+
+.question-card {
+  padding: 30px 30px 26px;
+}
+
+.question-number {
+  color: #8c6536;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-bottom: 14px;
+}
+
+.question-stem {
+  color: #2f2418;
+  font-size: 26px;
+  line-height: 1.8;
+  font-family: "STKaiti", "KaiTi", "Kaiti SC", "FangSong", serif;
+  margin-bottom: 24px;
+}
+
+.question-area {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.option-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background: rgba(255, 250, 241, 0.76);
+  border: 1px solid rgba(124, 92, 48, 0.12);
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+}
+
+.option-label:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 248, 235, 0.96);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
+}
+
+.option-label input[type="radio"] {
+  margin-top: 5px;
+}
+
+.option-text {
+  color: #3a2b1b;
+  font-size: 20px;
+  line-height: 1.8;
+  font-family: "STKaiti", "KaiTi", "Kaiti SC", "FangSong", serif;
+}
+
+.fill-group {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.fill-item {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fill-item label {
+  color: #5b4328;
+  font-size: 18px;
+  font-family: "STKaiti", "KaiTi", "Kaiti SC", "FangSong", serif;
+}
+
+.fill-item input {
+  height: 48px;
+  padding: 0 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(124, 92, 48, 0.2);
+  background: rgba(255, 252, 246, 0.92);
+  outline: none;
+  font-size: 16px;
+}
+
+.essay-box {
+  width: 100%;
+  min-height: 180px;
+  resize: vertical;
+  border-radius: 16px;
+  border: 1px solid rgba(124, 92, 48, 0.2);
+  background: rgba(255, 252, 246, 0.92);
+  padding: 16px;
+  outline: none;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #3a2b1b;
+}
+
+.nav-bar {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  margin-top: 18px;
+}
+
+.nav-btn {
+  min-width: 150px;
+  height: 48px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 18px;
+  letter-spacing: 1px;
+  font-family: "STKaiti", "KaiTi", "Kaiti SC", "FangSong", serif;
+  transition: transform 0.18s ease, opacity 0.18s ease, box-shadow 0.18s ease;
+}
+
+.nav-btn:hover {
+  transform: translateY(-1px);
+}
+
+.secondary-btn {
+  background: rgba(121, 91, 58, 0.12);
+  color: #6a4d2f;
+}
+
+.primary-btn {
+  background: linear-gradient(180deg, #8b6a3e, #6f512d);
+  color: #f7ead2;
+  box-shadow: 0 8px 20px rgba(56, 36, 16, 0.22);
+}
+
+.submit-btn {
+  background: linear-gradient(180deg, #a37844, #7d582f);
+  color: #fff5e6;
+  box-shadow: 0 8px 20px rgba(56, 36, 16, 0.26);
+}
+
+.submit-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(10, 8, 6, 0.48);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.submit-card {
+  width: min(720px, 92vw);
+  padding: 42px 34px 30px;
+  border-radius: 24px;
+  text-align: center;
+  background: linear-gradient(180deg, rgba(248, 241, 223, 0.97), rgba(236, 223, 194, 0.95));
+  box-shadow:
+    0 12px 36px rgba(0, 0, 0, 0.28),
+    inset 0 0 0 1px rgba(124, 92, 48, 0.16);
+}
+
+.submit-title {
+  color: #3b2a18;
+  font-size: 38px;
+  letter-spacing: 3px;
+  font-family: "STKaiti", "KaiTi", "Kaiti SC", "FangSong", serif;
+}
+
+.submit-text {
+  margin-top: 18px;
+  color: #5b4328;
+  font-size: 22px;
+  line-height: 1.9;
+  font-family: "STKaiti", "KaiTi", "Kaiti SC", "FangSong", serif;
+}
+
+.finish-btn {
+  padding: 14px 34px;
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  background: linear-gradient(180deg, #8b6a3e, #6f512d);
+  color: #f7ead2;
+  font-size: 20px;
+  letter-spacing: 2px;
+  font-family: "STKaiti", "KaiTi", "Kaiti SC", "FangSong", serif;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.confirm-btn-row {
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.confirm-btn-row .nav-btn {
+  min-width: 160px;
+}
+
+.unfinished-link {
+  display: inline-block;
+  margin: 0 2px;
+  color: #7a5223;
+  font-weight: 700;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(122, 82, 35, 0.35);
+  transition: color 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+}
+
+.unfinished-link:hover {
+  color: #a0662b;
+  border-color: rgba(160, 102, 43, 0.6);
+  transform: translateY(-1px);
+}
+
+.result-card {
+  width: min(980px, 94vw);
+  max-height: 88vh;
+  text-align: left;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.result-summary {
+  margin-top: 22px;
+}
+
+.summary-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.summary-card {
+  border-radius: 18px;
+  padding: 16px 18px;
+  background: rgba(255, 250, 241, 0.78);
+  border: 1px solid rgba(124, 92, 48, 0.12);
+}
+
+.summary-label {
+  color: #8a6841;
+  font-size: 14px;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.summary-value {
+  color: #352616;
+  font-size: 22px;
+  line-height: 1.5;
+  font-family: "STKaiti", "KaiTi", "Kaiti SC", "FangSong", serif;
+}
+
+.feedback-panel {
+  margin-top: 16px;
+  border-radius: 18px;
+  padding: 18px 20px;
+  background: rgba(118, 83, 44, 0.08);
+  border: 1px solid rgba(124, 92, 48, 0.12);
+}
+
+.feedback-title {
+  color: #6e4e2e;
+  font-size: 18px;
+  margin-bottom: 8px;
+  font-family: "STKaiti", "KaiTi", "Kaiti SC", "FangSong", serif;
+}
+
+.feedback-text {
+  color: #4e3923;
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+.result-details {
+  margin-top: 18px;
+  padding-right: 4px;
+  overflow-y: auto;
+}
+
+.result-section {
+  margin-bottom: 20px;
+}
+
+.result-section h3 {
+  color: #5e4325;
+  font-size: 24px;
+  margin-bottom: 12px;
+  font-family: "STKaiti", "KaiTi", "Kaiti SC", "FangSong", serif;
+}
+
+.result-item {
+  margin-bottom: 12px;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(255, 250, 241, 0.78);
+  border: 1px solid rgba(124, 92, 48, 0.12);
+}
+
+.result-item-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.result-qno {
+  color: #533a1f;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.result-desc {
+  margin-top: 10px;
+  color: #5a432a;
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.result-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 74px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 14px;
+  letter-spacing: 1px;
+}
+
+.result-status.ok {
+  background: rgba(75, 134, 80, 0.14);
+  color: #2f6a35;
+}
+
+.result-status.bad {
+  background: rgba(166, 78, 58, 0.14);
+  color: #93442f;
+}
+
+.result-score-tag {
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: rgba(114, 81, 45, 0.12);
+  color: #6b4c2d;
+  font-size: 14px;
+}
+
+.sub-result-wrap {
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sub-result-row {
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.4);
+  color: #4f3a24;
+  line-height: 1.7;
+}
+
+.sub-result-ref {
+  margin-top: 6px;
+  color: #8b6441;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.essay-answer-box {
+  margin-top: 12px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(118, 83, 44, 0.06);
+  border: 1px dashed rgba(124, 92, 48, 0.18);
+}
+
+.essay-answer-title {
+  color: #6b4c2d;
+  font-size: 16px;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+
+.essay-answer-text {
+  color: #4e3923;
+  font-size: 16px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+}
+
+.result-btn-row {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 900px) {
+  .summary-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .training-shell {
+    width: 94vw;
+    padding-top: 26px;
+  }
+
+  .student-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .training-title {
+    font-size: 38px;
+  }
+
+  .question-stem {
+    font-size: 22px;
+  }
+
+  .option-text {
+    font-size: 18px;
+  }
+
+  .nav-bar {
+    flex-direction: column;
+  }
+
+  .nav-btn {
+    width: 100%;
+  }
+
+  .submit-card {
+    padding: 28px 20px 22px;
+  }
+
+  .submit-title {
+    font-size: 30px;
+  }
+
+  .submit-text {
+    font-size: 18px;
+  }
+
+  .summary-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .result-btn-row {
+    flex-direction: column;
+  }
+
+  .result-btn-row .nav-btn,
+  .result-btn-row .finish-btn {
+    width: 100%;
+  }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>训练场</title>
+  <link rel="stylesheet" href="training.css" />
+</head>
+<body>
+  <div class="training-page">
+    <div class="training-bg"></div>
+
+    <div class="training-shell">
+      <header class="training-header">
+        <div class="training-title">训练场</div>
+        <div class="training-subtitle">温故而知新，试锋于此</div>
+      </header>
+
+      <section class="student-bar">
+        <div class="field-item">
+          <label for="className">班级</label>
+          <input id="className" type="text" placeholder="请输入班级" />
+        </div>
+        <div class="field-item">
+          <label for="studentName">姓名</label>
+          <input id="studentName" type="text" placeholder="请输入姓名" />
+        </div>
+      </section>
+
+      <section class="progress-bar-wrap">
+        <div class="progress-meta">
+          <span id="progressText">第 1 题 / 共 16 题</span>
+          <span id="questionTypeTag" class="question-type-tag">单项选择题</span>
+        </div>
+        <div class="progress-bar">
+          <div id="progressInner" class="progress-inner"></div>
+        </div>
+      </section>
+
+      <main class="question-card">
+        <div id="questionNumber" class="question-number">第 1 题</div>
+        <div id="questionStem" class="question-stem"></div>
+        <div id="questionArea" class="question-area"></div>
+      </main>
+
+      <section class="nav-bar">
+        <button id="prevBtn" class="nav-btn secondary-btn">上一题</button>
+        <button id="nextBtn" class="nav-btn primary-btn">下一题</button>
+        <button id="submitBtn" class="nav-btn submit-btn">提交测试</button>
+      </section>
+    </div>
+
+    <div id="unfinishedOverlay" class="submit-overlay hidden">
+      <div class="submit-card">
+        <div class="submit-title">提交提醒</div>
+        <div id="unfinishedText" class="submit-text">
+          你的第1、6、7题还未作答完成，确认提交？
+        </div>
+        <div class="confirm-btn-row">
+          <button id="backToAnswerBtn" class="nav-btn secondary-btn">返回作答</button>
+          <button id="confirmSubmitBtn" class="nav-btn submit-btn">确认提交</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="resultOverlay" class="submit-overlay hidden">
+      <div class="submit-card result-card">
+        <div id="resultTitle" class="submit-title">训练结果</div>
+        <div id="resultSummary" class="result-summary"></div>
+        <div id="resultDetails" class="result-details"></div>
+        <div class="result-btn-row">
+          <button id="reviewBtn" class="nav-btn secondary-btn">留在本页复盘</button>
+          <button id="finishBtn" class="finish-btn">返回首页</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="training.js"></script>
+</body>
+</html>
